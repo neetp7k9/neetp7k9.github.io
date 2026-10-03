@@ -1,0 +1,20 @@
+title: Pu An Yang
+description: "Pu An Yang is a software engineer. Explore public projects and notes on software, systems, and learning."
+url: "https://neetp7k9.github.io"
+baseurl: ""
+linkedin_url: ""
+markdown: kramdown
+highlighter: rouge
+permalink: /blog/:year/:month/:day/:title/
+timezone: Asia/Tokyo
+future: false
+strict_front_matter: true
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE
+  - vendor
+  - .bundle
+  - .gitignore
+  - AUTHORING.md

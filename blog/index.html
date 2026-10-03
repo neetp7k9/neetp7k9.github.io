@@ -1,0 +1,12 @@
+---
+layout: default
+title: Blog
+description: "Software, projects, and notes along the way. A blog by Pu An Yang."
+permalink: /blog/
+---
+<section class="blog-intro wrap"><p class="eyebrow">The blog</p><h1>Notes along<br><span>the way.</span></h1><p>Software, projects, and things worth writing down.</p></section>
+<section class="blog-list wrap" aria-label="Blog posts">
+{% for post in site.posts %}
+<a class="post-row" href="{{ post.url | relative_url }}"><div class="post-meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %-d, %Y' }}</time>{% if post.tags.first %}<span>{{ post.tags.first | escape }}</span>{% endif %}</div><div><h2>{{ post.title | escape }}</h2><p>{{ post.summary | escape }}</p></div><span class="post-read">Read post</span></a>
+{% else %}<p class="empty-state">The first post is on its way.</p>{% endfor %}
+</section>

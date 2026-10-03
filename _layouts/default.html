@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#204ae7">
+  <meta name="description" content="{{ page.summary | default: page.description | default: site.description | escape }}">
+  <title>{{ page.title | escape }} · {{ site.title | escape }}</title>
+  {% if page.noindex %}<meta name="robots" content="noindex, nofollow">{% endif %}
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:title" content="{{ page.title | escape }} · {{ site.title | escape }}">
+  <meta property="og:description" content="{{ page.summary | default: site.description | escape }}">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23204ae7'/%3E%3Ctext x='32' y='43' fill='white' font-family='Arial,sans-serif' font-weight='700' font-size='32' text-anchor='middle'%3EPY%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
+  <link rel="alternate" type="application/atom+xml" title="Pu An Yang’s blog" href="{{ '/feed.xml' | relative_url }}">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header wrap">
+    <a class="identity" href="{{ '/' | relative_url }}" aria-label="Pu An Yang, home"><span class="monogram" aria-hidden="true">PY</span><span>Pu An Yang</span></a>
+    <nav aria-label="Main navigation"><a href="{{ '/' | relative_url }}#about">About</a><a href="{{ '/' | relative_url }}#projects">Projects</a><a href="{{ '/blog/' | relative_url }}"{% if page.url contains '/blog/' %} aria-current="page"{% endif %}>Blog</a><a href="https://github.com/neetp7k9">GitHub</a></nav>
+  </header>
+  <main id="main">{{ content }}</main>
+  <footer class="site-footer wrap"><span>© {{ site.time | date: '%Y' }} Pu An Yang</span><div><a href="{{ '/feed.xml' | relative_url }}">RSS</a><a href="{{ '/write/' | relative_url }}">Write a post</a><a href="#main">Back to top</a></div></footer>
+</body>
+</html>

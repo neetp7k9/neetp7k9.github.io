@@ -1,0 +1,91 @@
+---
+layout: default
+title: Write
+noindex: true
+permalink: /write/
+description: A simple workspace for writing and publishing a new post.
+---
+<link rel="stylesheet" href="{{ '/write/author.css' | relative_url }}">
+<section class="author wrap" aria-labelledby="author-heading">
+  <header class="author-header">
+    <p class="section-label">Writing workspace</p>
+    <h1 id="author-heading">A thought worth sharing.</h1>
+    <p>Draft a post, preview it, and publish through GitHub.</p>
+  </header>
+
+  <aside class="author-notice" aria-label="How publishing works">
+    <strong>Your draft stays in this browser until you choose to share it.</strong>
+    <p>Publishing opens GitHub, where you must sign in and select <strong>Commit changes</strong>. Only the repository owner and authorized contributors can publish. Your post becomes public after GitHub builds the site.</p>
+  </aside>
+
+  <noscript><p class="author-notice">This editor needs JavaScript to preview and export posts. You can also add a Markdown file directly to the <a href="https://github.com/neetp7k9/neetp7k9.github.io/tree/main/_posts">blog repository</a>.</p></noscript>
+
+  <form id="post-form" class="author-form">
+    <div class="author-fields">
+      <div class="author-field author-field-wide">
+        <label for="post-title">Title <span>(required)</span></label>
+        <input id="post-title" name="title" type="text" maxlength="120" required placeholder="What have you been working on?" autocomplete="off">
+      </div>
+      <div class="author-field">
+        <label for="post-date">Date <span>(required)</span></label>
+        <input id="post-date" name="date" type="date" required aria-describedby="date-hint">
+        <p id="date-hint" class="author-hint">Use today or an earlier date to publish immediately.</p>
+      </div>
+      <div class="author-field">
+        <label for="post-tags">Tags <span>(optional)</span></label>
+        <input id="post-tags" name="tags" type="text" maxlength="240" placeholder="Engineering, systems, learning" aria-describedby="tags-hint" autocomplete="off">
+        <p id="tags-hint" class="author-hint">Separate tags with commas.</p>
+      </div>
+      <div class="author-field author-field-wide">
+        <label for="post-summary">Summary <span>(required)</span></label>
+        <textarea id="post-summary" name="summary" rows="2" maxlength="240" required placeholder="A short introduction for the blog listing." aria-describedby="summary-hint"></textarea>
+        <p id="summary-hint" class="author-hint">Up to 240 characters. This appears on the blog listing.</p>
+      </div>
+      <div class="author-field author-field-wide">
+        <div class="author-field-heading">
+          <label for="post-body">Post <span>(Markdown, required)</span></label>
+          <span id="word-count" class="author-hint">0 words</span>
+        </div>
+        <textarea id="post-body" name="body" class="author-body" rows="18" required placeholder="Start writing here…" aria-describedby="markdown-hint"></textarea>
+        <p id="markdown-hint" class="author-hint">Try ## Heading, **bold**, *italic*, [link](https://example.com), - lists, or fenced code blocks. The preview supports basic Markdown; GitHub Pages renders the final post.</p>
+      </div>
+    </div>
+
+    <div class="author-draft">
+      <label class="author-checkbox" for="save-draft">
+        <input id="save-draft" type="checkbox" aria-describedby="draft-hint">
+        <span>Remember this draft on this device</span>
+      </label>
+      <p id="draft-hint" class="author-hint">Optional. Saves one draft in this browser’s local storage, readable by anyone using this browser profile. Uncheck to remove the saved copy. Download a copy for a reliable backup.</p>
+      <button id="clear-draft" class="author-text-button" type="button" disabled>Remove saved copy</button>
+    </div>
+
+    <div class="author-actions">
+      <button id="preview-button" class="button button-outline" type="button" disabled>Preview</button>
+      <button id="download-button" class="button button-outline" type="button" disabled>Download Markdown</button>
+      <button id="publish-button" class="button" type="submit" disabled>Publish with GitHub</button>
+    </div>
+    <p id="author-status" class="author-status" role="status" aria-live="polite" aria-atomic="true"></p>
+  </form>
+
+  <aside id="upload-fallback" class="author-notice author-fallback" hidden>
+    <h2>Finish publishing on GitHub</h2>
+    <p>This post is too long to send safely in a link. A Markdown download has been started instead.</p>
+    <ol>
+      <li>Keep the downloaded filename unchanged.</li>
+      <li><a href="https://github.com/neetp7k9/neetp7k9.github.io/upload/main/_posts" target="_blank" rel="noopener noreferrer">Open the blog upload page on GitHub</a> and sign in.</li>
+      <li>Add the downloaded file and select <strong>Commit changes</strong>.</li>
+    </ol>
+    <p>Opening GitHub or downloading the file does not publish the post.</p>
+  </aside>
+
+  <section id="preview-panel" class="author-preview" aria-labelledby="preview-heading" hidden>
+    <div class="author-preview-top"><p class="section-label">Preview</p><span>Basic Markdown</span></div>
+    <h2 id="preview-heading" tabindex="-1"></h2>
+    <p id="preview-meta" class="author-preview-meta"></p>
+    <p id="preview-summary" class="author-preview-summary"></p>
+    <div id="preview-content" class="author-preview-content"></div>
+  </section>
+  <p class="author-back"><a href="{{ '/blog/' | relative_url }}">Back to the blog</a></p>
+</section>
+<script src="{{ '/write/author.js' | relative_url }}" defer></script>
